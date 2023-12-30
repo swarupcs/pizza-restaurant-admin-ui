@@ -1,5 +1,13 @@
+import { Typography } from 'antd';
+import { useAuthStore } from '../store';
+const { Title } = Typography;
 function HomePage() {
-    return <h1>Hello from MernSpace</h1>;
+    const { user } = useAuthStore();
+    return (
+        <div>
+            <Title level={4}>Welcome, {user?.firstName} 😀</Title>
+        </div>
+    );
 }
 
 export default HomePage;
