@@ -1,5 +1,5 @@
-import { Breadcrumb, Button, Flex, Form, Image, Space, Table, Tag, Typography } from 'antd';
-import { RightOutlined, PlusOutlined } from '@ant-design/icons';
+import { Breadcrumb, Button, Flex, Form, Image, Space, Spin, Table, Tag, Typography } from 'antd';
+import { RightOutlined, PlusOutlined, LoadingOutlined } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
 import ProductsFilter from './ProductsFilter';
 import { FieldData, Product } from '../../types';
@@ -112,6 +112,11 @@ const Products = () => {
                         separator={<RightOutlined />}
                         items={[{ title: <Link to="/">Dashboard</Link> }, { title: 'Products' }]}
                     />
+
+                    {isFetching && (
+                        <Spin indicator={<LoadingOutlined style={{ fontSize: 24 }} spin />} />
+                    )}
+                    {isError && <Typography.Text type="danger">{error.message}</Typography.Text>}
                 </Flex>
 
                 <Form form={filterForm} onFieldsChange={onFilterChange}>
