@@ -21,7 +21,7 @@ import { PER_PAGE } from '../../constants';
 import { keepPreviousData, useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { createProduct, getProducts, updateProduct } from '../../http/api';
 import { format } from 'date-fns';
-import { debounce, set } from 'lodash';
+import { debounce } from 'lodash';
 import { useAuthStore } from '../../store';
 import ProductForm from './forms/ProductForm';
 import { makeFormData } from './helpers';

@@ -12,13 +12,7 @@ import {
 } from 'antd';
 import { RightOutlined, PlusOutlined, LoadingOutlined } from '@ant-design/icons';
 import { Link, Navigate } from 'react-router-dom';
-import {
-    QueryClient,
-    keepPreviousData,
-    useMutation,
-    useQuery,
-    useQueryClient,
-} from '@tanstack/react-query';
+import { keepPreviousData, useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { createUser, getUsers, updateUser } from '../../http/api';
 import { CreateUserData, FieldData, User } from '../../types';
 import { useAuthStore } from '../../store';
