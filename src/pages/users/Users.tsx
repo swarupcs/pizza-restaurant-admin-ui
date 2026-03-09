@@ -26,6 +26,7 @@ import UsersFilter from './UsersFilter';
 import React from 'react';
 import UserForm from './forms/UserForm';
 import { PER_PAGE } from '../../constants';
+import { debounce } from 'lodash';
 
 const columns = [
     {
@@ -110,25 +111,24 @@ const Users = () => {
         setDrawerOpen(false);
     };
 
+    const debouncedQUpdate = React.useMemo(() => {
+        return debounce((value: string | undefined) => {
+            setQueryParams((prev) => ({ ...prev, q: value }));
+        }, 1000);
+    }, []);
+
     const onFilterChange = (changedFields: FieldData[]) => {
-        // console.log(changedFields);
-
-        // [
-        //     {q: 'something'},
-        //     {role: 'admin'}
-        // ]
-
-        // {
-        //     q: 'something',
-        //     role: 'admin'
-        // }
-
         const changedFilterFields = changedFields
             .map((item) => ({
                 [item.name[0]]: item.value,
             }))
             .reduce((acc, item) => ({ ...acc, ...item }), {});
-        setQueryParams((prev) => ({ ...prev, ...changedFilterFields }));
+
+        if ('q' in changedFilterFields) {
+            debouncedQUpdate(changedFilterFields.q);
+        } else {
+            setQueryParams((prev) => ({ ...prev, ...changedFilterFields }));
+        }
     };
 
     if (user?.role !== 'admin') {
