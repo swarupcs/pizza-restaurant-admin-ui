@@ -19,3 +19,4 @@ export const updateUser = (user: CreateUserData, id: string) =>
     api.patch(`${AUTH_SERVICE}/users/${id}`, user);
 
 // Catelog service
+export const getCategories = () => api.get(`${CATALOG_SERVICE}/categories`);
