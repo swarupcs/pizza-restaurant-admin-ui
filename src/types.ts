@@ -82,8 +82,7 @@ export enum OrderStatus {
     RECEIVED = 'received',
     CONFIRMED = 'confirmed',
     PREPARED = 'prepared',
-    // todo: fix out_for_deliver(y*) typo in order status
-    OUT_FOR_DELIVERY = 'out_for_deliver',
+    OUT_FOR_DELIVERY = 'out_for_delivery',
     DELIVERED = 'delivered',
 }
 
