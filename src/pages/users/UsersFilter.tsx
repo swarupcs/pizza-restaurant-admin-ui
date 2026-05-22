@@ -1,5 +1,4 @@
-import { Button, Card, Col, Form, Input, Row, Select } from 'antd';
-import { PlusOutlined } from '@ant-design/icons';
+import { Card, Col, Form, Input, Row, Select } from 'antd';
 
 type UsersFilterProps = {
     children?: React.ReactNode;
