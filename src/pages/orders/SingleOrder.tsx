@@ -121,7 +121,7 @@ const SingleOrder = () => {
                                     <List.Item.Meta
                                         avatar={<Avatar src={item.image} />}
                                         title={item.name}
-                                        description={item.chosenConfiguration.selectedToppings[0]
+                                        description={item.chosenConfiguration.selectedToppings
                                             // todo: IMPORTANT: check why there is a nested array in selected toppings
                                             // @ts-ignore
                                             .map((topping) => topping.name)
