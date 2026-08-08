@@ -123,7 +123,6 @@ const SingleOrder = () => {
                                         title={item.name}
                                         description={item.chosenConfiguration.selectedToppings
                                             // todo: IMPORTANT: check why there is a nested array in selected toppings
-                                            // @ts-ignore
                                             .map((topping) => topping.name)
                                             .join(', ')}
                                     />

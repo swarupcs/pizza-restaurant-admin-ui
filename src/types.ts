@@ -121,7 +121,7 @@ export interface Customer {
 }
 export interface Order {
     _id: string;
-    image: any;
+    image: string;
     cart: CartItem[];
     customerId: Customer;
     total: number;
