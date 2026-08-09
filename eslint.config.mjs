@@ -49,4 +49,17 @@ export default tseslint.config(
       "react-hooks/exhaustive-deps": "off",
     },
   },
+  {
+    // Specs sometimes declare a parameter only to give a mock a signature —
+    // `vi.fn((_config) => ...)` is how the config an argument-less mock was
+    // called with becomes readable and typed. The leading underscore is the
+    // usual marker for that.
+    files: ["**/*.spec.{ts,tsx}", "src/test-utils.tsx"],
+    rules: {
+      "@typescript-eslint/no-unused-vars": [
+        "error",
+        { argsIgnorePattern: "^_", varsIgnorePattern: "^_" },
+      ],
+    },
+  },
 );
